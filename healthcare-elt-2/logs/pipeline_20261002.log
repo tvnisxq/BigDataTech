@@ -1,0 +1,710 @@
+========================================
+Healthcare ELT Pipeline Started
+Start Time: Friday 02 October 2026 02:02:06 PM IST
+STEP 1: Loading RAW data
+Starting RAW data load...
+Loading JSON visits into HDFS...
+put: `/home/tvnisxq/healthcare-elt-2/data/patient_visits.json': No such file or directory
+Importing patients from MySQL...
+Deleted /healthcare-elt-2/raw/patients
+Warning: /opt/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /opt/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+2026-10-02 14:02:11,857 INFO  [main] sqoop.Sqoop (Sqoop.java:<init>(96)) - Running Sqoop version: 1.4.7
+2026-10-02 14:02:11,881 WARN  [main] tool.BaseSqoopTool (BaseSqoopTool.java:applyCredentialsOptions(1120)) - Setting your password on the command-line is insecure. Consider using -P instead.
+2026-10-02 14:02:11,962 INFO  [main] manager.MySQLManager (MySQLManager.java:initOptionDefaults(71)) - Preparing to use a MySQL streaming resultset.
+2026-10-02 14:02:11,962 INFO  [main] tool.CodeGenTool (CodeGenTool.java:generateORM(91)) - Beginning code generation
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+2026-10-02 14:02:12,308 INFO  [main] manager.SqlManager (SqlManager.java:execute(776)) - Executing SQL statement: SELECT t.* FROM `patients` AS t LIMIT 1
+2026-10-02 14:02:12,343 INFO  [main] manager.SqlManager (SqlManager.java:execute(776)) - Executing SQL statement: SELECT t.* FROM `patients` AS t LIMIT 1
+2026-10-02 14:02:12,349 INFO  [main] orm.CompilationManager (CompilationManager.java:findHadoopJars(100)) - HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-tvnisxq/compile/41ac65aa725fdfa41d44b3283a7a847f/patients.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2026-10-02 14:02:13,329 INFO  [main] orm.CompilationManager (CompilationManager.java:jar(362)) - Writing jar file: /tmp/sqoop-tvnisxq/compile/41ac65aa725fdfa41d44b3283a7a847f/patients.jar
+2026-10-02 14:02:13,896 INFO  [main] tool.ImportTool (ImportTool.java:deleteTargetDir(557)) - Destination directory /healthcare-elt-2/raw/patients is not present, hence not deleting.
+2026-10-02 14:02:13,896 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(116)) - It looks like you are importing from mysql.
+2026-10-02 14:02:13,896 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(117)) - This transfer can be faster! Use the --direct
+2026-10-02 14:02:13,896 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(118)) - option to exercise a MySQL-specific fast path.
+2026-10-02 14:02:13,896 INFO  [main] manager.MySQLManager (MySQLManager.java:checkDateTimeBehavior(198)) - Setting zero DATETIME behavior to convertToNull (mysql)
+2026-10-02 14:02:13,901 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runImport(239)) - Beginning import of patients
+2026-10-02 14:02:13,901 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2026-10-02 14:02:13,906 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2026-10-02 14:02:13,918 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2026-10-02 14:02:13,982 INFO  [main] client.DefaultNoHARMFailoverProxyProvider (DefaultNoHARMFailoverProxyProvider.java:init(64)) - Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-10-02 14:02:14,203 INFO  [main] mapreduce.JobResourceUploader (JobResourceUploader.java:disableErasureCodingForPath(907)) - Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/tvnisxq/.staging/job_1790884958310_0011
+2026-10-02 14:02:18,467 INFO  [main] db.DBInputFormat (DBInputFormat.java:setTxIsolation(195)) - Using read commited transaction isolation
+2026-10-02 14:02:18,495 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:submitJobInternal(203)) - number of splits:1
+2026-10-02 14:02:18,610 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:printTokens(299)) - Submitting tokens for job: job_1790884958310_0011
+2026-10-02 14:02:18,610 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:printTokens(300)) - Executing with tokens: []
+2026-10-02 14:02:18,800 INFO  [main] conf.Configuration (Configuration.java:getConfResourceAsInputStream(2898)) - resource-types.xml not found
+2026-10-02 14:02:18,800 INFO  [main] resource.ResourceUtils (ResourceUtils.java:addResourcesFileToConf(476)) - Unable to find 'resource-types.xml'.
+2026-10-02 14:02:18,846 INFO  [main] impl.YarnClientImpl (YarnClientImpl.java:submitApplication(356)) - Submitted application application_1790884958310_0011
+2026-10-02 14:02:18,870 INFO  [main] mapreduce.Job (Job.java:submit(1681)) - The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0011/
+2026-10-02 14:02:18,870 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1726)) - Running job: job_1790884958310_0011
+2026-10-02 14:02:23,920 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1747)) - Job job_1790884958310_0011 running in uber mode : false
+2026-10-02 14:02:23,920 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1754)) -  map 0% reduce 0%
+2026-10-02 14:02:27,960 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1754)) -  map 100% reduce 0%
+2026-10-02 14:02:28,969 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1765)) - Job job_1790884958310_0011 completed successfully
+2026-10-02 14:02:29,027 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1772)) - Counters: 33
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=319566
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=113
+		HDFS: Number of read operations=6
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=2199
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=2199
+		Total vcore-milliseconds taken by all map tasks=2199
+		Total megabyte-milliseconds taken by all map tasks=2251776
+	Map-Reduce Framework
+		Map input records=4
+		Map output records=4
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=13
+		CPU time spent (ms)=1850
+		Physical memory (bytes) snapshot=329908224
+		Virtual memory (bytes) snapshot=2793828352
+		Total committed heap usage (bytes)=257949696
+		Peak Map Physical memory (bytes)=329908224
+		Peak Map Virtual memory (bytes)=2793828352
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=113
+2026-10-02 14:02:29,031 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runJob(188)) - Transferred 113 bytes in 15.1069 seconds (7.48 bytes/sec)
+2026-10-02 14:02:29,033 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runJob(190)) - Retrieved 4 records.
+RAW data load completed.
+STEP 2: Hive Transformation
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.18.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.18.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Connecting to jdbc:hive2://localhost:10000/
+Connected to: Apache Hive (version 4.0.1)
+Driver: Hive JDBC (version 4.0.1)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+0: jdbc:hive2://localhost:10000/> USE healthcare_elt_2;
+INFO  : Compiling command(queryId=hive_20261002140232_beaff623-2905-4e4e-ab99-baf2f11fa317): USE healthcare_elt_2
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20261002140232_beaff623-2905-4e4e-ab99-baf2f11fa317); Time taken: 0.006 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hive_20261002140232_beaff623-2905-4e4e-ab99-baf2f11fa317): USE healthcare_elt_2
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20261002140232_beaff623-2905-4e4e-ab99-baf2f11fa317); Time taken: 0.002 seconds
+No rows affected (0.046 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> SET hive.auto.convert.join=false;
+No rows affected (0.004 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> ADD JAR /usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar;
+INFO  : Added [/usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar] to class path
+INFO  : Added resources: [/usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar]
+No rows affected (0.005 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> INSERT OVERWRITE TABLE patient_analytics
+. . . . . . . . . . . . . . . . > SELECT
+. . . . . . . . . . . . . . . . >     p.patient_id,
+. . . . . . . . . . . . . . . . >     p.patient_name,
+. . . . . . . . . . . . . . . . >     p.city,
+. . . . . . . . . . . . . . . . >     COUNT(v.visit_id) AS total_visits,
+. . . . . . . . . . . . . . . . >     SUM(v.amount) AS total_spent
+. . . . . . . . . . . . . . . . > FROM patients_raw p
+. . . . . . . . . . . . . . . . > JOIN visits_raw v
+. . . . . . . . . . . . . . . . >     ON p.patient_id = v.patient_id
+. . . . . . . . . . . . . . . . > GROUP BY
+. . . . . . . . . . . . . . . . >     p.patient_id,
+. . . . . . . . . . . . . . . . >     p.patient_name,
+. . . . . . . . . . . . . . . . >     p.city;
+INFO  : Compiling command(queryId=hive_20261002140232_71e00221-33a0-4f5d-86bd-0ee29b1e748a): INSERT OVERWRITE TABLE patient_analytics
+SELECT
+p.patient_id,
+p.patient_name,
+p.city,
+COUNT(v.visit_id) AS total_visits,
+SUM(v.amount) AS total_spent
+FROM patients_raw p
+JOIN visits_raw v
+ON p.patient_id = v.patient_id
+GROUP BY
+p.patient_id,
+p.patient_name,
+p.city
+INFO  : No Stats for healthcare_elt_2@patients_raw, Columns: city, patient_id, patient_name
+INFO  : No Stats for healthcare_elt_2@visits_raw, Columns: amount, patient_id, visit_id
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:string, comment:null), FieldSchema(name:_col1, type:string, comment:null), FieldSchema(name:_col2, type:string, comment:null), FieldSchema(name:_col3, type:int, comment:null), FieldSchema(name:_col4, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20261002140232_71e00221-33a0-4f5d-86bd-0ee29b1e748a); Time taken: 0.224 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hive_20261002140232_71e00221-33a0-4f5d-86bd-0ee29b1e748a): INSERT OVERWRITE TABLE patient_analytics
+SELECT
+p.patient_id,
+p.patient_name,
+p.city,
+COUNT(v.visit_id) AS total_visits,
+SUM(v.amount) AS total_spent
+FROM patients_raw p
+JOIN visits_raw v
+ON p.patient_id = v.patient_id
+GROUP BY
+p.patient_id,
+p.patient_name,
+p.city
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+INFO  : Query ID = hive_20261002140232_71e00221-33a0-4f5d-86bd-0ee29b1e748a
+INFO  : Total jobs = 3
+INFO  : Launching Job 1 out of 3
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1790884958310_0012
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0012/
+INFO  : Starting Job = job_1790884958310_0012, Tracking URL = http://tufmint:8088/proxy/application_1790884958310_0012/
+INFO  : Kill Command = /usr/lib/hadoop/bin/mapred job  -kill job_1790884958310_0012
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2026-10-02 14:02:40,872 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2026-10-02 14:02:47,030 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 7.25 sec
+INFO  : 2026-10-02 14:02:51,113 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 9.37 sec
+INFO  : MapReduce Total cumulative CPU time: 9 seconds 370 msec
+INFO  : Ended Job = job_1790884958310_0012
+INFO  : Launching Job 2 out of 3
+INFO  : Starting task [Stage-2:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1790884958310_0013
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0013/
+INFO  : Starting Job = job_1790884958310_0013, Tracking URL = http://tufmint:8088/proxy/application_1790884958310_0013/
+INFO  : Kill Command = /usr/lib/hadoop/bin/mapred job  -kill job_1790884958310_0013
+INFO  : Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+INFO  : 2026-10-02 14:03:04,146 Stage-2 map = 0%,  reduce = 0%
+INFO  : 2026-10-02 14:03:08,235 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.35 sec
+INFO  : 2026-10-02 14:03:14,328 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 5.52 sec
+INFO  : MapReduce Total cumulative CPU time: 5 seconds 520 msec
+INFO  : Ended Job = job_1790884958310_0013
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Loading data to table healthcare_elt_2.patient_analytics from hdfs://localhost:8020/user/hive/warehouse/healthcare_elt_2.db/patient_analytics/.hive-staging_hive_2026-10-02_14-02-32_226_811167362678523756-2/-ext-10000
+INFO  : Launching Job 3 out of 3
+INFO  : Starting task [Stage-4:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1790884958310_0014
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0014/
+INFO  : Starting Job = job_1790884958310_0014, Tracking URL = http://tufmint:8088/proxy/application_1790884958310_0014/
+INFO  : Kill Command = /usr/lib/hadoop/bin/mapred job  -kill job_1790884958310_0014
+INFO  : Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+INFO  : 2026-10-02 14:03:26,525 Stage-4 map = 0%,  reduce = 0%
+INFO  : 2026-10-02 14:03:30,601 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 1.29 sec
+INFO  : 2026-10-02 14:03:35,682 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 4.55 sec
+INFO  : MapReduce Total cumulative CPU time: 4 seconds 550 msec
+INFO  : Ended Job = job_1790884958310_0014
+INFO  : Starting task [Stage-3:STATS] in serial mode
+INFO  : Executing stats task
+INFO  : Table healthcare_elt_2.patient_analytics stats: [numFiles=1, numRows=4, totalSize=1321, rawDataSize=330, numFilesErasureCoded=0]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 9.37 sec   HDFS Read: 24779 HDFS Write: 277 HDFS EC Read: 0 SUCCESS
+INFO  : Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 5.52 sec   HDFS Read: 17777 HDFS Write: 1746 HDFS EC Read: 0 SUCCESS
+INFO  : Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 4.55 sec   HDFS Read: 24291 HDFS Write: 390 HDFS EC Read: 0 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 19 seconds 440 msec
+INFO  : Completed executing command(queryId=hive_20261002140232_71e00221-33a0-4f5d-86bd-0ee29b1e748a); Time taken: 65.327 seconds
+4 rows affected (65.559 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> Closing: 0: jdbc:hive2://localhost:10000/
+STEP 3: Pipeline Completed
+End Time: Friday 02 October 2026 02:03:37 PM IST
+========================================
+Healthcare ELT Pipeline Started
+Start Time: Friday 02 October 2026 06:22:34 PM IST
+STEP 1: Loading RAW data
+Starting RAW data load...
+Loading JSON visits into HDFS...
+Importing patients from MySQL...
+Deleted /healthcare-elt-2/raw/patients
+Warning: /opt/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /opt/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+2026-10-02 18:22:39,317 INFO  [main] sqoop.Sqoop (Sqoop.java:<init>(96)) - Running Sqoop version: 1.4.7
+2026-10-02 18:22:39,339 WARN  [main] tool.BaseSqoopTool (BaseSqoopTool.java:applyCredentialsOptions(1120)) - Setting your password on the command-line is insecure. Consider using -P instead.
+2026-10-02 18:22:39,407 INFO  [main] manager.MySQLManager (MySQLManager.java:initOptionDefaults(71)) - Preparing to use a MySQL streaming resultset.
+2026-10-02 18:22:39,408 INFO  [main] tool.CodeGenTool (CodeGenTool.java:generateORM(91)) - Beginning code generation
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+2026-10-02 18:22:39,716 INFO  [main] manager.SqlManager (SqlManager.java:execute(776)) - Executing SQL statement: SELECT t.* FROM `patients` AS t LIMIT 1
+2026-10-02 18:22:39,750 INFO  [main] manager.SqlManager (SqlManager.java:execute(776)) - Executing SQL statement: SELECT t.* FROM `patients` AS t LIMIT 1
+2026-10-02 18:22:39,755 INFO  [main] orm.CompilationManager (CompilationManager.java:findHadoopJars(100)) - HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-tvnisxq/compile/e4c61e82bc5f6f92d089048cafebd466/patients.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2026-10-02 18:22:40,609 INFO  [main] orm.CompilationManager (CompilationManager.java:jar(362)) - Writing jar file: /tmp/sqoop-tvnisxq/compile/e4c61e82bc5f6f92d089048cafebd466/patients.jar
+2026-10-02 18:22:41,136 INFO  [main] tool.ImportTool (ImportTool.java:deleteTargetDir(557)) - Destination directory /healthcare-elt-2/raw/patients is not present, hence not deleting.
+2026-10-02 18:22:41,136 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(116)) - It looks like you are importing from mysql.
+2026-10-02 18:22:41,136 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(117)) - This transfer can be faster! Use the --direct
+2026-10-02 18:22:41,136 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(118)) - option to exercise a MySQL-specific fast path.
+2026-10-02 18:22:41,136 INFO  [main] manager.MySQLManager (MySQLManager.java:checkDateTimeBehavior(198)) - Setting zero DATETIME behavior to convertToNull (mysql)
+2026-10-02 18:22:41,149 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runImport(239)) - Beginning import of patients
+2026-10-02 18:22:41,150 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2026-10-02 18:22:41,153 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2026-10-02 18:22:41,165 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2026-10-02 18:22:41,225 INFO  [main] client.DefaultNoHARMFailoverProxyProvider (DefaultNoHARMFailoverProxyProvider.java:init(64)) - Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-10-02 18:22:41,423 INFO  [main] mapreduce.JobResourceUploader (JobResourceUploader.java:disableErasureCodingForPath(907)) - Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/tvnisxq/.staging/job_1790884958310_0016
+2026-10-02 18:22:41,915 INFO  [main] db.DBInputFormat (DBInputFormat.java:setTxIsolation(195)) - Using read commited transaction isolation
+2026-10-02 18:22:42,340 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:submitJobInternal(203)) - number of splits:1
+2026-10-02 18:22:42,417 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:printTokens(299)) - Submitting tokens for job: job_1790884958310_0016
+2026-10-02 18:22:42,417 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:printTokens(300)) - Executing with tokens: []
+2026-10-02 18:22:42,563 INFO  [main] conf.Configuration (Configuration.java:getConfResourceAsInputStream(2898)) - resource-types.xml not found
+2026-10-02 18:22:42,564 INFO  [main] resource.ResourceUtils (ResourceUtils.java:addResourcesFileToConf(476)) - Unable to find 'resource-types.xml'.
+2026-10-02 18:22:42,608 INFO  [main] impl.YarnClientImpl (YarnClientImpl.java:submitApplication(356)) - Submitted application application_1790884958310_0016
+2026-10-02 18:22:42,627 INFO  [main] mapreduce.Job (Job.java:submit(1681)) - The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0016/
+2026-10-02 18:22:42,627 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1726)) - Running job: job_1790884958310_0016
+2026-10-02 18:22:46,690 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1747)) - Job job_1790884958310_0016 running in uber mode : false
+2026-10-02 18:22:46,691 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1754)) -  map 0% reduce 0%
+2026-10-02 18:22:50,722 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1754)) -  map 100% reduce 0%
+2026-10-02 18:22:50,726 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1765)) - Job job_1790884958310_0016 completed successfully
+2026-10-02 18:22:50,777 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1772)) - Counters: 33
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=319566
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=113
+		HDFS: Number of read operations=6
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=1879
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=1879
+		Total vcore-milliseconds taken by all map tasks=1879
+		Total megabyte-milliseconds taken by all map tasks=1924096
+	Map-Reduce Framework
+		Map input records=4
+		Map output records=4
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=15
+		CPU time spent (ms)=1580
+		Physical memory (bytes) snapshot=322023424
+		Virtual memory (bytes) snapshot=2797559808
+		Total committed heap usage (bytes)=257949696
+		Peak Map Physical memory (bytes)=322023424
+		Peak Map Virtual memory (bytes)=2797559808
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=113
+2026-10-02 18:22:50,781 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runJob(188)) - Transferred 113 bytes in 9.61 seconds (11.7586 bytes/sec)
+2026-10-02 18:22:50,783 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runJob(190)) - Retrieved 4 records.
+RAW data load completed.
+STEP 2: Hive Transformation
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.18.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.18.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Connecting to jdbc:hive2://localhost:10000/
+Connected to: Apache Hive (version 4.0.1)
+Driver: Hive JDBC (version 4.0.1)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+0: jdbc:hive2://localhost:10000/> USE healthcare_elt_2;
+INFO  : Compiling command(queryId=hive_20261002182253_52c03a97-2dac-45d7-b555-84b992bc795d): USE healthcare_elt_2
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20261002182253_52c03a97-2dac-45d7-b555-84b992bc795d); Time taken: 0.006 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hive_20261002182253_52c03a97-2dac-45d7-b555-84b992bc795d): USE healthcare_elt_2
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20261002182253_52c03a97-2dac-45d7-b555-84b992bc795d); Time taken: 0.002 seconds
+No rows affected (0.032 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> SET hive.auto.convert.join=false;
+No rows affected (0.003 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> ADD JAR /usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar;
+INFO  : Added [/usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar] to class path
+INFO  : Added resources: [/usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar]
+No rows affected (0.003 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> INSERT OVERWRITE TABLE patient_analytics
+. . . . . . . . . . . . . . . . > SELECT
+. . . . . . . . . . . . . . . . >     p.patient_id,
+. . . . . . . . . . . . . . . . >     p.patient_name,
+. . . . . . . . . . . . . . . . >     p.city,
+. . . . . . . . . . . . . . . . >     COUNT(v.visit_id) AS total_visits,
+. . . . . . . . . . . . . . . . >     SUM(v.amount) AS total_spent
+. . . . . . . . . . . . . . . . > FROM patients_raw p
+. . . . . . . . . . . . . . . . > JOIN visits_raw v
+. . . . . . . . . . . . . . . . >     ON p.patient_id = v.patient_id
+. . . . . . . . . . . . . . . . > GROUP BY
+. . . . . . . . . . . . . . . . >     p.patient_id,
+. . . . . . . . . . . . . . . . >     p.patient_name,
+. . . . . . . . . . . . . . . . >     p.city;
+INFO  : Compiling command(queryId=hive_20261002182253_8bdb5347-572c-430f-821c-d40d0e1b769e): INSERT OVERWRITE TABLE patient_analytics
+SELECT
+p.patient_id,
+p.patient_name,
+p.city,
+COUNT(v.visit_id) AS total_visits,
+SUM(v.amount) AS total_spent
+FROM patients_raw p
+JOIN visits_raw v
+ON p.patient_id = v.patient_id
+GROUP BY
+p.patient_id,
+p.patient_name,
+p.city
+INFO  : No Stats for healthcare_elt_2@patients_raw, Columns: city, patient_id, patient_name
+INFO  : No Stats for healthcare_elt_2@visits_raw, Columns: amount, patient_id, visit_id
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:string, comment:null), FieldSchema(name:_col1, type:string, comment:null), FieldSchema(name:_col2, type:string, comment:null), FieldSchema(name:_col3, type:int, comment:null), FieldSchema(name:_col4, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20261002182253_8bdb5347-572c-430f-821c-d40d0e1b769e); Time taken: 0.208 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hive_20261002182253_8bdb5347-572c-430f-821c-d40d0e1b769e): INSERT OVERWRITE TABLE patient_analytics
+SELECT
+p.patient_id,
+p.patient_name,
+p.city,
+COUNT(v.visit_id) AS total_visits,
+SUM(v.amount) AS total_spent
+FROM patients_raw p
+JOIN visits_raw v
+ON p.patient_id = v.patient_id
+GROUP BY
+p.patient_id,
+p.patient_name,
+p.city
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+INFO  : Query ID = hive_20261002182253_8bdb5347-572c-430f-821c-d40d0e1b769e
+INFO  : Total jobs = 3
+INFO  : Launching Job 1 out of 3
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1790884958310_0017
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0017/
+INFO  : Starting Job = job_1790884958310_0017, Tracking URL = http://tufmint:8088/proxy/application_1790884958310_0017/
+INFO  : Kill Command = /usr/lib/hadoop/bin/mapred job  -kill job_1790884958310_0017
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2026-10-02 18:23:01,549 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2026-10-02 18:23:06,670 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 6.77 sec
+INFO  : 2026-10-02 18:23:25,961 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 6.77 sec
+INFO  : MapReduce Total cumulative CPU time: 6 seconds 770 msec
+ERROR : Ended Job = job_1790884958310_0017 with errors
+ERROR : FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 6.77 sec   HDFS Read: 16596 HDFS Write: 0 HDFS EC Read: 0 FAIL
+INFO  : Total MapReduce CPU Time Spent: 6 seconds 770 msec
+INFO  : Completed executing command(queryId=hive_20261002182253_8bdb5347-572c-430f-821c-d40d0e1b769e); Time taken: 33.398 seconds
+Error: Error while compiling statement: FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask (state=08S01,code=2)
+Closing: 0: jdbc:hive2://localhost:10000/
+HIVE TRANSFORMATION FAILED
+========================================
+Healthcare ELT Pipeline Started
+Start Time: Friday 02 October 2026 07:05:42 PM IST
+STEP 1: Loading RAW data
+Starting RAW data load...
+Loading JSON visits into HDFS...
+Importing patients from MySQL...
+Deleted /healthcare-elt-2/raw/patients
+Warning: /opt/sqoop/../hcatalog does not exist! HCatalog jobs will fail.
+Please set $HCAT_HOME to the root of your HCatalog installation.
+Warning: /opt/sqoop/../accumulo does not exist! Accumulo imports will fail.
+Please set $ACCUMULO_HOME to the root of your Accumulo installation.
+2026-10-02 19:05:48,085 INFO  [main] sqoop.Sqoop (Sqoop.java:<init>(96)) - Running Sqoop version: 1.4.7
+2026-10-02 19:05:48,119 WARN  [main] tool.BaseSqoopTool (BaseSqoopTool.java:applyCredentialsOptions(1120)) - Setting your password on the command-line is insecure. Consider using -P instead.
+2026-10-02 19:05:48,197 INFO  [main] manager.MySQLManager (MySQLManager.java:initOptionDefaults(71)) - Preparing to use a MySQL streaming resultset.
+2026-10-02 19:05:48,197 INFO  [main] tool.CodeGenTool (CodeGenTool.java:generateORM(91)) - Beginning code generation
+Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+2026-10-02 19:05:48,533 INFO  [main] manager.SqlManager (SqlManager.java:execute(776)) - Executing SQL statement: SELECT t.* FROM `patients` AS t LIMIT 1
+2026-10-02 19:05:48,574 INFO  [main] manager.SqlManager (SqlManager.java:execute(776)) - Executing SQL statement: SELECT t.* FROM `patients` AS t LIMIT 1
+2026-10-02 19:05:48,579 INFO  [main] orm.CompilationManager (CompilationManager.java:findHadoopJars(100)) - HADOOP_MAPRED_HOME is /usr/lib/hadoop-mapreduce
+Note: /tmp/sqoop-tvnisxq/compile/188ec1997176ab5f15b6647ddc80f78c/patients.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+2026-10-02 19:05:49,558 INFO  [main] orm.CompilationManager (CompilationManager.java:jar(362)) - Writing jar file: /tmp/sqoop-tvnisxq/compile/188ec1997176ab5f15b6647ddc80f78c/patients.jar
+2026-10-02 19:05:50,155 INFO  [main] tool.ImportTool (ImportTool.java:deleteTargetDir(557)) - Destination directory /healthcare-elt-2/raw/patients is not present, hence not deleting.
+2026-10-02 19:05:50,155 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(116)) - It looks like you are importing from mysql.
+2026-10-02 19:05:50,155 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(117)) - This transfer can be faster! Use the --direct
+2026-10-02 19:05:50,155 WARN  [main] manager.MySQLManager (MySQLManager.java:importTable(118)) - option to exercise a MySQL-specific fast path.
+2026-10-02 19:05:50,155 INFO  [main] manager.MySQLManager (MySQLManager.java:checkDateTimeBehavior(198)) - Setting zero DATETIME behavior to convertToNull (mysql)
+2026-10-02 19:05:50,161 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runImport(239)) - Beginning import of patients
+2026-10-02 19:05:50,161 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.job.tracker is deprecated. Instead, use mapreduce.jobtracker.address
+2026-10-02 19:05:50,166 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.jar is deprecated. Instead, use mapreduce.job.jar
+2026-10-02 19:05:50,190 INFO  [main] Configuration.deprecation (Configuration.java:logDeprecation(1462)) - mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+2026-10-02 19:05:50,265 INFO  [main] client.DefaultNoHARMFailoverProxyProvider (DefaultNoHARMFailoverProxyProvider.java:init(64)) - Connecting to ResourceManager at localhost/127.0.0.1:8032
+2026-10-02 19:05:50,467 INFO  [main] mapreduce.JobResourceUploader (JobResourceUploader.java:disableErasureCodingForPath(907)) - Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/tvnisxq/.staging/job_1790884958310_0018
+2026-10-02 19:05:51,414 INFO  [main] db.DBInputFormat (DBInputFormat.java:setTxIsolation(195)) - Using read commited transaction isolation
+2026-10-02 19:05:51,435 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:submitJobInternal(203)) - number of splits:1
+2026-10-02 19:05:51,519 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:printTokens(299)) - Submitting tokens for job: job_1790884958310_0018
+2026-10-02 19:05:51,519 INFO  [main] mapreduce.JobSubmitter (JobSubmitter.java:printTokens(300)) - Executing with tokens: []
+2026-10-02 19:05:51,689 INFO  [main] conf.Configuration (Configuration.java:getConfResourceAsInputStream(2898)) - resource-types.xml not found
+2026-10-02 19:05:51,689 INFO  [main] resource.ResourceUtils (ResourceUtils.java:addResourcesFileToConf(476)) - Unable to find 'resource-types.xml'.
+2026-10-02 19:05:51,745 INFO  [main] impl.YarnClientImpl (YarnClientImpl.java:submitApplication(356)) - Submitted application application_1790884958310_0018
+2026-10-02 19:05:51,771 INFO  [main] mapreduce.Job (Job.java:submit(1681)) - The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0018/
+2026-10-02 19:05:51,772 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1726)) - Running job: job_1790884958310_0018
+2026-10-02 19:05:56,832 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1747)) - Job job_1790884958310_0018 running in uber mode : false
+2026-10-02 19:05:56,833 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1754)) -  map 0% reduce 0%
+2026-10-02 19:06:01,876 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1754)) -  map 100% reduce 0%
+2026-10-02 19:06:01,881 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1765)) - Job job_1790884958310_0018 completed successfully
+2026-10-02 19:06:01,942 INFO  [main] mapreduce.Job (Job.java:monitorAndPrintJob(1772)) - Counters: 33
+	File System Counters
+		FILE: Number of bytes read=0
+		FILE: Number of bytes written=319566
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=87
+		HDFS: Number of bytes written=113
+		HDFS: Number of read operations=6
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Launched map tasks=1
+		Other local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=2279
+		Total time spent by all reduces in occupied slots (ms)=0
+		Total time spent by all map tasks (ms)=2279
+		Total vcore-milliseconds taken by all map tasks=2279
+		Total megabyte-milliseconds taken by all map tasks=2333696
+	Map-Reduce Framework
+		Map input records=4
+		Map output records=4
+		Input split bytes=87
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=15
+		CPU time spent (ms)=1420
+		Physical memory (bytes) snapshot=305119232
+		Virtual memory (bytes) snapshot=2773766144
+		Total committed heap usage (bytes)=257949696
+		Peak Map Physical memory (bytes)=305119232
+		Peak Map Virtual memory (bytes)=2773766144
+	File Input Format Counters 
+		Bytes Read=0
+	File Output Format Counters 
+		Bytes Written=113
+2026-10-02 19:06:01,946 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runJob(188)) - Transferred 113 bytes in 11.7494 seconds (9.6175 bytes/sec)
+2026-10-02 19:06:01,948 INFO  [main] mapreduce.ImportJobBase (ImportJobBase.java:runJob(190)) - Retrieved 4 records.
+RAW data load completed.
+STEP 2: Hive Transformation
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.18.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/usr/lib/hive/lib/log4j-slf4j-impl-2.18.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/usr/lib/hadoop/lib/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Connecting to jdbc:hive2://localhost:10000/
+Connected to: Apache Hive (version 4.0.1)
+Driver: Hive JDBC (version 4.0.1)
+Transaction isolation: TRANSACTION_REPEATABLE_READ
+0: jdbc:hive2://localhost:10000/> USE healthcare_elt_2;
+INFO  : Compiling command(queryId=hive_20261002190604_61a266b7-dd5c-4016-a9bd-ba92c3787a9c): USE healthcare_elt_2
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:null, properties:null)
+INFO  : Completed compiling command(queryId=hive_20261002190604_61a266b7-dd5c-4016-a9bd-ba92c3787a9c); Time taken: 0.007 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hive_20261002190604_61a266b7-dd5c-4016-a9bd-ba92c3787a9c): USE healthcare_elt_2
+INFO  : Starting task [Stage-0:DDL] in serial mode
+INFO  : Completed executing command(queryId=hive_20261002190604_61a266b7-dd5c-4016-a9bd-ba92c3787a9c); Time taken: 0.003 seconds
+No rows affected (0.045 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> SET hive.auto.convert.join=false;
+No rows affected (0.004 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> ADD JAR /usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar;
+INFO  : Added [/usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar] to class path
+INFO  : Added resources: [/usr/lib/hive/lib/hive-hcatalog-core-4.0.1.jar]
+No rows affected (0.004 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> INSERT OVERWRITE TABLE patient_analytics
+. . . . . . . . . . . . . . . . > SELECT
+. . . . . . . . . . . . . . . . >     p.patient_id,
+. . . . . . . . . . . . . . . . >     p.patient_name,
+. . . . . . . . . . . . . . . . >     p.city,
+. . . . . . . . . . . . . . . . >     COUNT(v.visit_id) AS total_visits,
+. . . . . . . . . . . . . . . . >     SUM(v.amount) AS total_spent
+. . . . . . . . . . . . . . . . > FROM patients_raw p
+. . . . . . . . . . . . . . . . > JOIN visits_raw v
+. . . . . . . . . . . . . . . . >     ON p.patient_id = v.patient_id
+. . . . . . . . . . . . . . . . > GROUP BY
+. . . . . . . . . . . . . . . . >     p.patient_id,
+. . . . . . . . . . . . . . . . >     p.patient_name,
+. . . . . . . . . . . . . . . . >     p.city;
+INFO  : Compiling command(queryId=hive_20261002190605_ab413116-1018-40c4-8ea8-27bfd61028d5): INSERT OVERWRITE TABLE patient_analytics
+SELECT
+p.patient_id,
+p.patient_name,
+p.city,
+COUNT(v.visit_id) AS total_visits,
+SUM(v.amount) AS total_spent
+FROM patients_raw p
+JOIN visits_raw v
+ON p.patient_id = v.patient_id
+GROUP BY
+p.patient_id,
+p.patient_name,
+p.city
+INFO  : No Stats for healthcare_elt_2@patients_raw, Columns: city, patient_id, patient_name
+INFO  : No Stats for healthcare_elt_2@visits_raw, Columns: amount, patient_id, visit_id
+INFO  : Semantic Analysis Completed (retrial = false)
+INFO  : Created Hive schema: Schema(fieldSchemas:[FieldSchema(name:_col0, type:string, comment:null), FieldSchema(name:_col1, type:string, comment:null), FieldSchema(name:_col2, type:string, comment:null), FieldSchema(name:_col3, type:int, comment:null), FieldSchema(name:_col4, type:double, comment:null)], properties:null)
+INFO  : Completed compiling command(queryId=hive_20261002190605_ab413116-1018-40c4-8ea8-27bfd61028d5); Time taken: 0.204 seconds
+INFO  : Concurrency mode is disabled, not creating a lock manager
+INFO  : Executing command(queryId=hive_20261002190605_ab413116-1018-40c4-8ea8-27bfd61028d5): INSERT OVERWRITE TABLE patient_analytics
+SELECT
+p.patient_id,
+p.patient_name,
+p.city,
+COUNT(v.visit_id) AS total_visits,
+SUM(v.amount) AS total_spent
+FROM patients_raw p
+JOIN visits_raw v
+ON p.patient_id = v.patient_id
+GROUP BY
+p.patient_id,
+p.patient_name,
+p.city
+WARN  : Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. tez) or using Hive 1.X releases.
+INFO  : Query ID = hive_20261002190605_ab413116-1018-40c4-8ea8-27bfd61028d5
+INFO  : Total jobs = 3
+INFO  : Launching Job 1 out of 3
+INFO  : Starting task [Stage-1:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:2
+INFO  : Submitting tokens for job: job_1790884958310_0019
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0019/
+INFO  : Starting Job = job_1790884958310_0019, Tracking URL = http://tufmint:8088/proxy/application_1790884958310_0019/
+INFO  : Kill Command = /usr/lib/hadoop/bin/mapred job  -kill job_1790884958310_0019
+INFO  : Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+INFO  : 2026-10-02 19:06:13,011 Stage-1 map = 0%,  reduce = 0%
+INFO  : 2026-10-02 19:06:18,131 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 7.38 sec
+INFO  : 2026-10-02 19:06:23,228 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 9.39 sec
+INFO  : MapReduce Total cumulative CPU time: 9 seconds 390 msec
+INFO  : Ended Job = job_1790884958310_0019
+INFO  : Launching Job 2 out of 3
+INFO  : Starting task [Stage-2:MAPRED] in serial mode
+INFO  : Number of reduce tasks not specified. Estimated from input data size: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1790884958310_0020
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0020/
+INFO  : Starting Job = job_1790884958310_0020, Tracking URL = http://tufmint:8088/proxy/application_1790884958310_0020/
+INFO  : Kill Command = /usr/lib/hadoop/bin/mapred job  -kill job_1790884958310_0020
+INFO  : Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+INFO  : 2026-10-02 19:06:35,842 Stage-2 map = 0%,  reduce = 0%
+INFO  : 2026-10-02 19:06:39,924 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 1.39 sec
+INFO  : 2026-10-02 19:06:46,037 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 5.36 sec
+INFO  : MapReduce Total cumulative CPU time: 5 seconds 360 msec
+INFO  : Ended Job = job_1790884958310_0020
+INFO  : Starting task [Stage-0:MOVE] in serial mode
+INFO  : Loading data to table healthcare_elt_2.patient_analytics from hdfs://localhost:8020/user/hive/warehouse/healthcare_elt_2.db/patient_analytics/.hive-staging_hive_2026-10-02_19-06-05_077_7231165290397080153-2/-ext-10000
+INFO  : Launching Job 3 out of 3
+INFO  : Starting task [Stage-4:MAPRED] in serial mode
+INFO  : Number of reduce tasks determined at compile time: 1
+INFO  : In order to change the average load for a reducer (in bytes):
+INFO  :   set hive.exec.reducers.bytes.per.reducer=<number>
+INFO  : In order to limit the maximum number of reducers:
+INFO  :   set hive.exec.reducers.max=<number>
+INFO  : In order to set a constant number of reducers:
+INFO  :   set mapreduce.job.reduces=<number>
+INFO  : number of splits:1
+INFO  : Submitting tokens for job: job_1790884958310_0021
+INFO  : Executing with tokens: []
+INFO  : The url to track the job: http://tufmint:8088/proxy/application_1790884958310_0021/
+INFO  : Starting Job = job_1790884958310_0021, Tracking URL = http://tufmint:8088/proxy/application_1790884958310_0021/
+INFO  : Kill Command = /usr/lib/hadoop/bin/mapred job  -kill job_1790884958310_0021
+INFO  : Hadoop job information for Stage-4: number of mappers: 1; number of reducers: 1
+INFO  : 2026-10-02 19:06:57,475 Stage-4 map = 0%,  reduce = 0%
+INFO  : 2026-10-02 19:07:01,552 Stage-4 map = 100%,  reduce = 0%, Cumulative CPU 1.3 sec
+INFO  : 2026-10-02 19:07:07,664 Stage-4 map = 100%,  reduce = 100%, Cumulative CPU 4.44 sec
+INFO  : MapReduce Total cumulative CPU time: 4 seconds 440 msec
+INFO  : Ended Job = job_1790884958310_0021
+INFO  : Starting task [Stage-3:STATS] in serial mode
+INFO  : Executing stats task
+INFO  : Table healthcare_elt_2.patient_analytics stats: [numFiles=1, numRows=4, totalSize=1321, rawDataSize=330, numFilesErasureCoded=0]
+INFO  : MapReduce Jobs Launched: 
+INFO  : Stage-Stage-1: Map: 2  Reduce: 1   Cumulative CPU: 9.39 sec   HDFS Read: 24780 HDFS Write: 277 HDFS EC Read: 0 SUCCESS
+INFO  : Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 5.36 sec   HDFS Read: 17785 HDFS Write: 1746 HDFS EC Read: 0 SUCCESS
+INFO  : Stage-Stage-4: Map: 1  Reduce: 1   Cumulative CPU: 4.44 sec   HDFS Read: 24294 HDFS Write: 390 HDFS EC Read: 0 SUCCESS
+INFO  : Total MapReduce CPU Time Spent: 19 seconds 190 msec
+INFO  : Completed executing command(queryId=hive_20261002190605_ab413116-1018-40c4-8ea8-27bfd61028d5); Time taken: 63.468 seconds
+4 rows affected (63.678 seconds)
+0: jdbc:hive2://localhost:10000/> 
+0: jdbc:hive2://localhost:10000/> Closing: 0: jdbc:hive2://localhost:10000/
+STEP 3: Pipeline Completed
+End Time: Friday 02 October 2026 07:07:08 PM IST
